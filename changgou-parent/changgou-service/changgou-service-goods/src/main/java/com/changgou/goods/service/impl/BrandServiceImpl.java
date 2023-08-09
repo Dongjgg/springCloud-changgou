@@ -86,7 +86,6 @@ public class BrandServiceImpl implements BrandService {
 
 
         //4.封装pageinfo 返回
-
         return new PageInfo<Brand>(brands);
     }
 
