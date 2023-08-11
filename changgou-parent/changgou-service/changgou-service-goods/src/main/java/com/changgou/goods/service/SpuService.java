@@ -10,6 +10,12 @@ import java.util.List;
  *****/
 public interface SpuService {
 
+    /***
+     * 商品上架
+     * @param spuId
+     */
+    void put(Long spuId);
+
 
     /***
      * Spu多条件分页查询
