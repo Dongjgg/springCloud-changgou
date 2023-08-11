@@ -10,6 +10,7 @@ import java.util.List;
  *****/
 public interface SpuService {
 
+
     /***
      * Spu多条件分页查询
      * @param spu
@@ -73,7 +74,11 @@ public interface SpuService {
 
     Goods findGoodsById(Long id);
 
-    void auditSpu(Long id);
+    /***
+     * 商品审核
+     * @param spuId
+     */
+    void auditSpu(Long spuId);
 
     /**
      * 下架

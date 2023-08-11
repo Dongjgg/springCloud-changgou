@@ -336,11 +336,11 @@ public class SpuServiceImpl implements SpuService {
     }
 
     @Override
-    public void auditSpu(Long id) {
+    public void auditSpu(Long spuId) {
         //update tb_spu set status=1,is_marketable=1 where is_delete=0 and id = ?
 
         //先判断是否已经被删除
-        Spu spu = spuMapper.selectByPrimaryKey(id);
+        Spu spu = spuMapper.selectByPrimaryKey(spuId);
         if (spu == null || spu.getIsDelete().equals("1")) {//已经被删除了 或者商品部存在
             throw new RuntimeException("商品不存在或者已经删除");
         }

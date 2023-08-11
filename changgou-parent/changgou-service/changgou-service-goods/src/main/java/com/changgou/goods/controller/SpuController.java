@@ -144,7 +144,7 @@ public class SpuController {
 
 
     /**
-     * //审核商品 自动上架
+     * //审核商品+自动上架
      * @param id  spu的ID
      * @return
      */
