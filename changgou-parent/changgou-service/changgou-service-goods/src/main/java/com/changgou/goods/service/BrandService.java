@@ -14,6 +14,12 @@ import java.util.List;
  * @since 1.0
  */
 public interface BrandService {
+
+    /***
+     * 根据分类ID查询品牌集合
+     * @param categoryid:分类ID
+     */
+    List<Brand> findByCategory(Integer categoryid);
     List<Brand> findAll();
 
     Brand findById(Integer id);
