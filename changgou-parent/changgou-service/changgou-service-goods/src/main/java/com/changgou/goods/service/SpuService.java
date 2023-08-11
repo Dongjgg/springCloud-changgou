@@ -11,6 +11,12 @@ import java.util.List;
 public interface SpuService {
 
     /***
+     * 逻辑删除
+     * @param spuId
+     */
+    void logicDelete(Long spuId);
+
+    /***
      * 批量下架
      * @param ids
      * @return
