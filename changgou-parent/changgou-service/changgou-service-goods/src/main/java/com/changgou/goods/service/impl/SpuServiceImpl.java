@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +42,28 @@ public class SpuServiceImpl implements SpuService {
 
     @Autowired
     private BrandMapper brandMapper;
+
+    /***
+     * 批量上架
+     * @param ids:需要上架的商品ID集合
+     * @return
+     */
+    @Override
+    public int putMany(Long[] ids) {
+        Spu spu=new Spu();
+        spu.setIsMarketable("1");//上架
+        //批量修改
+        Example example=new Example(Spu.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andIn("id", Arrays.asList(ids));//id
+        //下架
+        criteria.andEqualTo("isMarketable","0");
+        //审核通过的
+        criteria.andEqualTo("status","1");
+        //非删除的
+        criteria.andEqualTo("isDelete","0");
+        return spuMapper.updateByExampleSelective(spu, example);
+    }
 
     /***
      * 商品上架
