@@ -262,7 +262,7 @@ public class SpuServiceImpl implements SpuService {
     }
 
     /**
-     * 删除
+     * 物理删除商品  直接删除不进行逻辑删除
      *
      * @param id
      */
