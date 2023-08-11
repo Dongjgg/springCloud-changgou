@@ -44,6 +44,28 @@ public class SpuServiceImpl implements SpuService {
     private BrandMapper brandMapper;
 
     /***
+     * 批量下架
+     * @param ids:需要下架的商品ID集合
+     * @return
+     */
+    @Override
+    public int pullMany(Long[] ids) {
+        Spu spu=new Spu();
+        spu.setIsMarketable("0");//下架
+        //批量修改
+        Example example=new Example(Spu.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andIn("id", Arrays.asList(ids));//id
+        //上架
+        criteria.andEqualTo("isMarketable","1");
+        //审核通过的
+        criteria.andEqualTo("status","1");
+        //非删除的
+        criteria.andEqualTo("isDelete","0");
+        return spuMapper.updateByExampleSelective(spu, example);
+    }
+
+    /***
      * 批量上架
      * @param ids:需要上架的商品ID集合
      * @return

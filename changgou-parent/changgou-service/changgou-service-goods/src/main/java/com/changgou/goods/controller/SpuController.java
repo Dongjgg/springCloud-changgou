@@ -155,6 +155,17 @@ public class SpuController {
     }
 
     /**
+     *  批量下架
+     * @param ids
+     * @return
+     */
+    @PutMapping("/pull/many")
+    public Result pullMany(@RequestBody Long[] ids){
+        int count = spuService.pullMany(ids);
+        return new Result(true,StatusCode.OK,"下架"+count+"个商品");
+    }
+
+    /**
      *  批量上架
      * @param ids
      * @return
