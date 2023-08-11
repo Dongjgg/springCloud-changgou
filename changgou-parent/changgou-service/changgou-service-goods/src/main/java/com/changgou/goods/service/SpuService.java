@@ -80,9 +80,9 @@ public interface SpuService {
      */
     void auditSpu(Long spuId);
 
-    /**
-     * 下架
-     * @param id
+    /***
+     * 商品下架
+     * @param id Spu的ID
      */
     void pullSpu(Long id);
 

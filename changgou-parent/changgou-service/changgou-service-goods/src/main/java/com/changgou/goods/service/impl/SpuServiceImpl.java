@@ -350,6 +350,11 @@ public class SpuServiceImpl implements SpuService {
         spuMapper.updateByPrimaryKeySelective(spu);
     }
 
+    /**
+     * 下架
+     * @param id
+     * @return
+     */
     @Override
     public void pullSpu(Long id) {
         //update tb_spu set is_marketable=0 where is_delete=0 and id = ? and is_marketable=1 and status=1
@@ -362,7 +367,7 @@ public class SpuServiceImpl implements SpuService {
             throw new RuntimeException("商品必须要审核或者商品必须要是上架的状态");
         }
 
-        spu.setIsMarketable("0");
+        spu.setIsMarketable("0");  //下架状态
         spuMapper.updateByPrimaryKeySelective(spu);
 
     }
