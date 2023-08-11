@@ -11,7 +11,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 /**
  * 描述
  *
- * @author 三国的包子
+ * @author Dj
  * @version 1.0
  * @package com.changgou *
  * @since 1.0

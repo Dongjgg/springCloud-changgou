@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 描述
  *
- * @author 三国的包子
+ * @author Dj
  * @version 1.0
  * @package com.changgou.goods.service.impl *
  * @since 1.0

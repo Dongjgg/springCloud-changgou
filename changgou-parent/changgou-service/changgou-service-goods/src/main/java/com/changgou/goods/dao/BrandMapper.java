@@ -6,7 +6,7 @@ import tk.mybatis.mapper.common.Mapper;
 /**
  * 描述
  *
- * @author 三国的包子
+ * @author Dj
  * @version 1.0
  * @package com.changgou.dao *
  * @since 1.0
