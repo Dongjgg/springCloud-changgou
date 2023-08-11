@@ -44,24 +44,7 @@ public class SpuServiceImpl implements SpuService {
     @Autowired
     private BrandMapper brandMapper;
 
-    /***
-     * 逻辑删除
-     * @param spuId
-     */
-    @Override
-    @Transactional
-    public void logicDelete(Long spuId) {
-        Spu spu = spuMapper.selectByPrimaryKey(spuId);
-        //检查是否下架的商品
-        if(!spu.getIsMarketable().equals("0")){
-            throw new RuntimeException("必须先下架再删除！");
-        }
-        //删除
-        spu.setIsDelete("1");
-        //未审核
-        spu.setStatus("0");
-        spuMapper.updateByPrimaryKeySelective(spu);
-    }
+
 
     /***
      * 批量下架
@@ -456,7 +439,14 @@ public class SpuServiceImpl implements SpuService {
 
     }
 
+
+    /**
+     * 逻辑删除
+     * @param id
+     * @return
+     */
     @Override
+    @Transactional
     public void logicDeleteSpu(Long id) {
         // update set is_delete=1 where id =? and is_delete=0
         Spu spu = spuMapper.selectByPrimaryKey(id);

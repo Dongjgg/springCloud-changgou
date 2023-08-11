@@ -24,16 +24,7 @@ public class SpuController {
     @Autowired
     private SpuService spuService;
 
-    /**
-     * 逻辑删除
-     * @param id
-     * @return
-     */
-    @DeleteMapping("/logic/delete/{id}")
-    public Result logicDelete(@PathVariable Long id){
-        spuService.logicDelete(id);
-        return new Result(true,StatusCode.OK,"逻辑删除成功！");
-    }
+
 
     /***
      * Spu分页条件搜索实现
@@ -209,6 +200,11 @@ public class SpuController {
         return new Result(true,StatusCode.OK,"下架成功");
     }
 
+    /**
+     * 逻辑删除
+     * @param id
+     * @return
+     */
     @DeleteMapping("/logic/delete/{id}")
     public Result logicDeleteSpu(@PathVariable(name="id")Long id){
         spuService.logicDeleteSpu(id);
