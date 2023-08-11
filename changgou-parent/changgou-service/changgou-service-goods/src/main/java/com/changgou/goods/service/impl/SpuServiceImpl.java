@@ -12,6 +12,7 @@ import com.github.pagehelper.PageInfo;
 import entity.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
@@ -42,6 +43,8 @@ public class SpuServiceImpl implements SpuService {
 
     @Autowired
     private BrandMapper brandMapper;
+
+
 
     /***
      * 批量下架
@@ -436,7 +439,14 @@ public class SpuServiceImpl implements SpuService {
 
     }
 
+
+    /**
+     * 逻辑删除
+     * @param id
+     * @return
+     */
     @Override
+    @Transactional
     public void logicDeleteSpu(Long id) {
         // update set is_delete=1 where id =? and is_delete=0
         Spu spu = spuMapper.selectByPrimaryKey(id);
@@ -452,6 +462,11 @@ public class SpuServiceImpl implements SpuService {
         spuMapper.updateByPrimaryKeySelective(spu);
     }
 
+    /**
+     * 恢复数据
+     * @param id
+     * @return
+     */
     @Override
     public void restoreSpu(Long id) {
         // update set is_delete=0 where id =? and is_delete=1

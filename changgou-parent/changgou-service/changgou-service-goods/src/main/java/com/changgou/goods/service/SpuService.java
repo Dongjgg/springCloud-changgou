@@ -10,6 +10,8 @@ import java.util.List;
  *****/
 public interface SpuService {
 
+
+
     /***
      * 批量下架
      * @param ids
@@ -106,8 +108,17 @@ public interface SpuService {
      */
     void pullSpu(Long id);
 
+    /**
+     * 逻辑删除
+     * @param id
+     * @return
+     */
     void logicDeleteSpu(Long id);
 
 
+    /***
+     * 还原被删除商品
+     * @param id
+     */
     void restoreSpu(Long id);
 }
