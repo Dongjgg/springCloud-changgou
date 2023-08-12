@@ -16,6 +16,7 @@
         <module>changgou-service-api</module>
         <module>changgou-web</module>
         <module>changgou-service/changgou-service-file</module>
+        <module>changgou-service/changgou-service-canal</module>
     </modules>
     <packaging>pom</packaging>
     <description>
